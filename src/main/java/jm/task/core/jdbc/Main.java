@@ -1,5 +1,6 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 import jm.task.core.jdbc.util.PropertiesUtil;
@@ -7,6 +8,8 @@ import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Environment;
+
+import java.util.List;
 
 public class Main {
 
@@ -22,17 +25,18 @@ public class Main {
 //         2. Добавление 4 User(ов) в таблицу с данными на свой выбор.
 //         После каждого добавления должен быть вывод в консоль
 //         (User с именем — name добавлен в базу данных)
-//        addUsersTask2();
+        addUsersTask2();
 
 //        3. Получение всех User из базы и вывод в консоль
 //        (должен быть переопределен toString в классе User)
-//        popUpAllUsersTask3();
+         popUpAllUsersTask3()
+                 .forEach(System.out::println);
 
 //        4. Очистка таблицы User(ов)
-//        truncateUserTableTask4();
+        truncateUserTableTask4();
 
 //        5. Удаление таблицы
-//        dropUserTableTask5();
+        dropUserTableTask5();
 
 
     }
@@ -48,8 +52,9 @@ public class Main {
         userService.saveUser("Natalya", "Tron", (byte)35 );
     }
 
-    private static void popUpAllUsersTask3() {
-        userService.getAllUsers();
+    private static List<User> popUpAllUsersTask3() {
+
+        return userService.getAllUsers();
     }
 
     private static void truncateUserTableTask4() {

@@ -71,7 +71,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try( var session = Util.getSessionFactory().openSession();){
             session.beginTransaction();
 
-            session.createNativeQuery(Queries.CREATE_TABLE.getQuery())
+            session.createSQLQuery(Queries.CREATE_TABLE.getQuery())
                     .addEntity(User.class)
                     .executeUpdate();
 
@@ -86,7 +86,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try (var session = Util.getSessionFactory()
                     .openSession()) {
             session.beginTransaction();
-            session.createNativeQuery(Queries.DROP_SQL.getQuery())
+            session.createSQLQuery(Queries.DROP_SQL.getQuery())
                     .executeUpdate();
 
             session.getTransaction().commit();
@@ -104,6 +104,7 @@ public class UserDaoHibernateImpl implements UserDao {
             User user = new User(name,lastName,age);
             session.persist(user);
 
+            session.flush();
             session.getTransaction().commit();
 
         } catch (HibernateException e) {
@@ -136,7 +137,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
 
             List<User> users = session.
-                    createNativeQuery(Queries.FIND_ALL_SQL.getQuery(), User.class)
+                    createNativeQuery(Queries.FIND_ALL_SQL.getQuery(),User.class)
                     .list();
 
             session.getTransaction().commit();
@@ -154,7 +155,7 @@ public class UserDaoHibernateImpl implements UserDao {
                 .openSession()) {
          session.beginTransaction();
 
-         session.createNativeQuery(Queries.DELETE_SQL.getQuery())
+         session.createSQLQuery(Queries.DELETE_SQL.getQuery())
                  .executeUpdate();
 
          session.getTransaction().commit();

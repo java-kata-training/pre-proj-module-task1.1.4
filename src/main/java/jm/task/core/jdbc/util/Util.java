@@ -42,7 +42,7 @@ public class Util {
     private Util() {
     }
 
-
+/*
     // =================== Configure for JDBC ===================
     //                  deprecated since task 1.1.4
     //                  forRemoval( value = "false")
@@ -116,7 +116,7 @@ public class Util {
             throw new RuntimeException(e);
         }
     }
-
+*/
 
 //    =================== Configure for Hibernate ===================
 //       --------------------- for  task 1.1.4 -------------------
