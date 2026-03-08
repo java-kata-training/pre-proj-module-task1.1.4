@@ -15,12 +15,12 @@ public class Main {
 
 //         Из задания https://platform.kata.academy/user/courses/111/1/1/3
 //         1. Создание таблицы User(ов)
-        createUsersTask1();
+//        createUsersTask1();
 
 //         2. Добавление 4 User(ов) в таблицу с данными на свой выбор.
 //         После каждого добавления должен быть вывод в консоль
 //         (User с именем — name добавлен в базу данных)
-        addUsersTask2();
+//        addUsersTask2();
 
 //        3. Получение всех User из базы и вывод в консоль
 //        (должен быть переопределен toString в классе User)
@@ -28,10 +28,10 @@ public class Main {
                  .forEach(System.out::println);
 
 //        4. Очистка таблицы User(ов)
-        truncateUserTableTask4();
+//        truncateUserTableTask4();
 
 //        5. Удаление таблицы
-        dropUserTableTask5();
+//        dropUserTableTask5();
 
 
     }
