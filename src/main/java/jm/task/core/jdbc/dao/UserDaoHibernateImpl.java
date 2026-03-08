@@ -68,7 +68,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public void createUsersTable() {
-        try( var session = Util.getSessionFactory().openSession();){
+        try( var session = Util.getSessionFactory().openSession()){
             session.beginTransaction();
 
             session.createSQLQuery(Queries.CREATE_TABLE.getQuery())
@@ -102,7 +102,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
 
             User user = new User(name,lastName,age);
-            session.persist(user);
+            session.save(user);
 
             session.flush();
             session.getTransaction().commit();
