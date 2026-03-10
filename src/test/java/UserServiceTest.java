@@ -39,7 +39,10 @@ public class UserServiceTest {
         try {
             userService.dropUsersTable();
             userService.createUsersTable();
-            userService.saveUser(testName, testLastName, testAge);
+            String veryLongName = "A".repeat(1000); // Для Java 11+
+
+//            userService.saveUser(testName, testLastName, testAge);
+            userService.saveUser(veryLongName, testLastName, testAge);
 
             User user = userService.getAllUsers().get(0);
 
